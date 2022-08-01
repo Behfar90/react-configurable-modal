@@ -11,6 +11,7 @@ const Test = () => {
         setShow={modalSetShow}
         width={"50%"}
         height={"550px"}
+        animation={"zoom-in"}
       >
         <div className="modal__header">
           <span
