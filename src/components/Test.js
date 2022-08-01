@@ -3,6 +3,12 @@ import Modal from "./Modal";
 
 const Test = () => {
   const [modalShow, modalSetShow] = useState(false);
+  const [coords, setCoords] = useState({});
+
+  const handleClick = (e) => {
+    modalSetShow(!modalShow);
+    setCoords({ top: e.clientX, left: e.clientY });
+  };
 
   return (
     <div>
@@ -11,7 +17,9 @@ const Test = () => {
         setShow={modalSetShow}
         width={"50%"}
         height={"550px"}
-        animation={"zoom-in"}
+        animation={"bottom"}
+        position={"target"}
+        coords={coords}
       >
         <div className="modal__header">
           <span
@@ -30,7 +38,10 @@ const Test = () => {
           <h3>Modal Footer</h3>
         </div>
       </Modal>
-      <button onClick={() => modalSetShow(!modalShow)}>Click</button>
+      <button onClick={handleClick}>Click</button>
+      <button style={{ float: "right" }} onClick={handleClick}>
+        Click 2
+      </button>
     </div>
   );
 };
