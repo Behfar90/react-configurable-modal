@@ -1,10 +1,14 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
+/* Hooks */
 import useOutsideCloser from "../hooks/useOutsideCloser";
+import useViewport from "../hooks/useViewport";
+/* Helper funcs */
+import positionHandler from "../Helpers/positionHandler";
+/* Styles */
 import "../styles.css";
 
 const Modal = ({
-  show,
   setShow,
   children,
   width,
@@ -12,29 +16,35 @@ const Modal = ({
   animation,
   position,
   coords,
+  viewportChecker = true,
 }) => {
   const modalRef = useRef();
+  const contentRef = useRef();
   const modalCloser = () => setShow(false);
 
   useOutsideCloser(modalRef, modalCloser);
 
-  const passedStyles = {
+  var passedStyles = {
     width: width || null,
     height: height || null,
     top: coords?.top && position === "target" ? coords?.top : null,
     left: coords?.left && position === "target" ? coords?.left : null,
   };
 
+  if (viewportChecker) {
+    let isInViewport = useViewport(contentRef);
+  }
+
   return (
     <div
       ref={modalRef}
       className={
         "modal" +
-        (show ? " modal__show" : "") +
         (position && position !== "top" ? ` modal__position-${position}` : "")
       }
     >
       <div
+        ref={contentRef}
         className={
           "modal__content" +
           (animation ? ` animate__${animation}` : "") +
@@ -49,7 +59,6 @@ const Modal = ({
 };
 
 Modal.propTypes = {
-  show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
   children: PropTypes.node,
   width: PropTypes.string,
@@ -67,6 +76,7 @@ Modal.propTypes = {
     top: PropTypes.string,
     left: PropTypes.string,
   }),
+  viewportChecker: PropTypes.bool,
 };
 
 export default Modal;
