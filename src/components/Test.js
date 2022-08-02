@@ -17,7 +17,7 @@ const Test = () => {
           setShow={modalSetShow}
           width={"50%"}
           height={"550px"}
-          animation={"right"}
+          animation={"top"}
           position={"target"}
           coords={coords}
         >

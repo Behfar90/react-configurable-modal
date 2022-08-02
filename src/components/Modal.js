@@ -2,9 +2,6 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 /* Hooks */
 import useOutsideCloser from "../hooks/useOutsideCloser";
-import useViewport from "../hooks/useViewport";
-/* Helper funcs */
-import positionHandler from "../Helpers/positionHandler";
 /* Styles */
 import "../styles.css";
 
@@ -16,7 +13,6 @@ const Modal = ({
   animation,
   position,
   coords,
-  viewportChecker = true,
 }) => {
   const modalRef = useRef();
   const contentRef = useRef();
@@ -31,10 +27,6 @@ const Modal = ({
     left: coords?.left && position === "target" ? coords?.left : null,
   };
 
-  if (viewportChecker) {
-    let isInViewport = useViewport(contentRef);
-  }
-
   return (
     <div
       ref={modalRef}
@@ -47,7 +39,11 @@ const Modal = ({
         ref={contentRef}
         className={
           "modal__content" +
-          (animation ? ` animate__${animation}` : "") +
+          (animation
+            ? position === "target"
+              ? " animate__fade-in"
+              : ` animate__${animation}`
+            : "") +
           (position && position !== "top" ? ` position__${position}` : "")
         }
         style={passedStyles}
