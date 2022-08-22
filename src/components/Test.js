@@ -15,10 +15,10 @@ const Test = () => {
       {modalShow && (
         <Modal
           setShow={modalSetShow}
-          width={"700px"}
-          height={"250px"}
+          width={"300px"}
+          height={"350px"}
           animation={"top"}
-          position={"top"}
+          position={"target"}
           coords={coords}
         >
           <div className="modal__header">
@@ -39,15 +39,23 @@ const Test = () => {
           </div>
         </Modal>
       )}
-      <button onClick={handleClick}>Click</button>
+      <button onClick={handleClick} style={{ position: "absolute", top: "0" }}>
+        Click
+      </button>
+      <button
+        onClick={handleClick}
+        style={{ position: "absolute", bottom: "400px" }}
+      >
+        Click2
+      </button>
       <button style={{ float: "right" }} onClick={handleClick}>
-        Click 2
+        Click 3
       </button>
       <button
         style={{ marginLeft: "400px", marginTop: "800px" }}
         onClick={handleClick}
       >
-        Click 3
+        Click 4
       </button>
     </div>
   );

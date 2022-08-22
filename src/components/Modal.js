@@ -1,7 +1,10 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
+/* Components */
+import Content from "./Content";
 /* Hooks */
 import useOutsideCloser from "../hooks/useOutsideCloser";
+// import useViewport from "../hooks/useViewport";
 /* Helpers */
 import setStyleProperty from "../helpers/setStyleProperty";
 /* Styles */
@@ -41,20 +44,13 @@ const Modal = ({
         (position && position !== "top" ? ` modal__position-${position}` : "")
       }
     >
-      <div
+      <Content
         ref={contentRef}
-        className={
-          "modal__content" +
-          (["top", "bottom"].includes(animation) ? ` animate__vertical` : "") +
-          (["left", "right"].includes(animation)
-            ? ` animate__horizontal`
-            : "") +
-          (position && position !== "top" ? ` position__${position}` : "")
-        }
-        style={passedStyles}
-      >
-        {children}
-      </div>
+        animation={animation}
+        position={position}
+        passedStyles={passedStyles}
+        children={children}
+      />
     </div>
   );
 };
