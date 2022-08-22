@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 /* Hooks */
 import useOutsideCloser from "../hooks/useOutsideCloser";
+/* Helpers */
+import setStyleProperty from "../helpers/setStyleProperty";
 /* Styles */
 import "../styles.css";
 
@@ -20,31 +22,16 @@ const Modal = ({
 
   useOutsideCloser(modalRef, modalCloser);
 
+  if (animation) {
+    setStyleProperty(animation);
+  }
+
   var passedStyles = {
     width: width || null,
     height: height || null,
     top: coords?.top && position === "target" ? coords?.top : null,
     left: coords?.left && position === "target" ? coords?.left : null,
   };
-
-  var root = document.documentElement;
-
-  switch (animation) {
-    case "top":
-      root.style.setProperty("--WillChangeAnimationVertical", "-100%");
-      break;
-    case "bottom":
-      root.style.setProperty("--WillChangeAnimationVertical", "100%");
-      break;
-    case "left":
-      root.style.setProperty("--WillChangeAnimationHorizontal", "-100%");
-      break;
-    case "right":
-      root.style.setProperty("--WillChangeAnimationHorizontal", "100%");
-      break;
-    default:
-      break;
-  }
 
   return (
     <div
