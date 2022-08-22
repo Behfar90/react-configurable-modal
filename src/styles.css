@@ -1,3 +1,8 @@
+/* CSS varibale for animation manipulation in js */
+:root {
+  --WillChangeAnimationVertical: -100%;
+  --WillChangeAnimationHorizontal: -100%;
+}
 /* The Modal (background) */
 .modal {
   display: flex;
@@ -41,37 +46,27 @@
 }
 
 /* Modal Content Animation Options */
-.animate__top {
-  animation-name: animatetop;
+.animate__vertical {
+  animation-name: animatevertical;
   animation-duration: 0.4s;
-  -webkit-animation-name: animatetop;
+  -webkit-animation-name: animatevertical;
   -webkit-animation-duration: 0.4s;
 }
 
-.animate__bottom {
-  animation-name: animatebottom;
+.animate__horizontal {
+  animation-name: animatehorizontal;
   animation-duration: 0.4s;
-  -webkit-animation-name: animatebottom;
+  -webkit-animation-name: animatehorizontal;
   -webkit-animation-duration: 0.4s;
 }
-.animate__right {
-  animation-name: animateright;
-  animation-duration: 0.4s;
-  -webkit-animation-name: animateright;
-  -webkit-animation-duration: 0.4s;
-}
-.animate__left {
-  animation-name: animateleft;
-  animation-duration: 0.4s;
-  -webkit-animation-name: animateleft;
-  -webkit-animation-duration: 0.4s;
-}
+
 .animate__fade-in {
   animation-name: animateopacity;
   animation-duration: 0.8s;
   -webkit-animation-name: animateopacity;
   -webkit-animation-duration: 0.8s;
 }
+
 .animate__zoom-in {
   animation-name: animatezoom;
   animation-duration: 0.6s;
@@ -90,86 +85,42 @@
 }
 
 /* Add Animation */
-@-webkit-keyframes animatetop {
+@-webkit-keyframes animatevertical {
   from {
-    top: -300px;
+    transform: translateY(var(--WillChangeAnimationVertical));
     opacity: 0;
   }
   to {
-    top: 0;
     opacity: 1;
   }
 }
 
-@keyframes animatetop {
+@keyframes animatevertical {
   from {
-    top: -300px;
+    transform: translateY(var(--WillChangeAnimationVertical));
     opacity: 0;
   }
   to {
-    top: 0;
     opacity: 1;
   }
 }
 
-@keyframes animatebottom {
+@keyframes animatehorizontal {
   from {
-    bottom: -300px;
+    transform: translateX(var(--WillChangeAnimationHorizontal));
     opacity: 0;
   }
   to {
-    bottom: 0;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes animatebottom {
-  from {
-    bottom: -300px;
-    opacity: 0;
-  }
-  to {
-    bottom: 0;
     opacity: 1;
   }
 }
 
-@keyframes animateleft {
+@-webkit-keyframes animatehorizontal {
   from {
-    left: -300px;
+    transform: translateX(var(--WillChangeAnimationHorizontal));
     opacity: 0;
   }
   to {
-    left: 0;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes animateleft {
-  from {
-    left: -300px;
-    opacity: 0;
-  }
-  to {
-    left: 0;
-    opacity: 1;
-  }
-}
-@keyframes animateright {
-  from {
-    right: -300px;
-    opacity: 0;
-  }
-  to {
-    right: 0;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes animateright {
-  from {
-    right: -300px;
-    opacity: 0;
-  }
-  to {
-    right: 0;
     opacity: 1;
   }
 }

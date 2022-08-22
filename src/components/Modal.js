@@ -27,6 +27,25 @@ const Modal = ({
     left: coords?.left && position === "target" ? coords?.left : null,
   };
 
+  var root = document.documentElement;
+
+  switch (animation) {
+    case "top":
+      root.style.setProperty("--WillChangeAnimationVertical", "-100%");
+      break;
+    case "bottom":
+      root.style.setProperty("--WillChangeAnimationVertical", "100%");
+      break;
+    case "left":
+      root.style.setProperty("--WillChangeAnimationHorizontal", "-100%");
+      break;
+    case "right":
+      root.style.setProperty("--WillChangeAnimationHorizontal", "100%");
+      break;
+    default:
+      break;
+  }
+
   return (
     <div
       ref={modalRef}
@@ -39,10 +58,9 @@ const Modal = ({
         ref={contentRef}
         className={
           "modal__content" +
-          (animation
-            ? position === "target"
-              ? " animate__fade-in"
-              : ` animate__${animation}`
+          (["top", "bottom"].includes(animation) ? ` animate__vertical` : "") +
+          (["left", "right"].includes(animation)
+            ? ` animate__horizontal`
             : "") +
           (position && position !== "top" ? ` position__${position}` : "")
         }
@@ -69,8 +87,8 @@ Modal.propTypes = {
   ]),
   position: PropTypes.oneOf(["top", "bottom", "center", "target"]),
   coords: PropTypes.shape({
-    top: PropTypes.string,
-    left: PropTypes.string,
+    top: PropTypes.number,
+    left: PropTypes.number,
   }),
   viewportChecker: PropTypes.bool,
 };
