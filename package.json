@@ -1,8 +1,9 @@
 {
-  "name": "react-relative-modal",
+  "name": "react-configurable-modal",
   "version": "1.0.0",
   "description": "A react NPM package for creating popped modals with configuring dimensions, animation and position",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
@@ -11,21 +12,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Behfar90/react-relative-modal.git"
+    "url": "git+https://github.com/Behfar90/react-configurable-modal.git"
   },
   "keywords": [
     "react",
     "npm",
     "npm-package",
     "react-modal",
-    "react-relative-modal"
+    "react-configurable-modal"
   ],
   "author": "BeHFaR",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Behfar90/react-relative-modal/issues"
+    "url": "https://github.com/Behfar90/react-configurable-modal/issues"
   },
-  "homepage": "https://github.com/Behfar90/react-relative-modal#readme",
+  "homepage": "https://github.com/Behfar90/react-configurable-modal#readme",
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@babel/preset-react": "^7.18.6",
