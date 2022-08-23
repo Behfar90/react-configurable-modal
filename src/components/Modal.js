@@ -61,6 +61,7 @@ Modal.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   animation: PropTypes.oneOf([
+    "",
     "top",
     "bottom",
     "left",
@@ -68,7 +69,7 @@ Modal.propTypes = {
     "fade-in",
     "zoom-in",
   ]),
-  position: PropTypes.oneOf(["top", "bottom", "center", "target"]),
+  position: PropTypes.oneOf(["", "top", "bottom", "center", "target"]),
   coords: PropTypes.shape({
     top: PropTypes.number,
     left: PropTypes.number,

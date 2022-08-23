@@ -1,4 +1,4 @@
-# react-relative-modal
+# react-configurable-modal
 
 A react library for creating popped modals with configurable dimensions, multiple animations and position options.
 
@@ -12,10 +12,13 @@ The advantage of this library is to pass the modal content as `chidren` prop and
 
 [![ReactConfigurableModal Playground](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/2tqmts?file=/src/App.js)
 
+Here is a playground that you can set different props to the `Modal` and see which one you desire to use.
+
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [API](#api)
 - [Examples](#examples)
 
 ## Installation
@@ -35,3 +38,19 @@ To install react-configurable-modal in React CDN app:
          referrerpolicy="no-referrer"></script>
 
 - Use `<ReactConfigurableModal>` tag inside your React CDN app.
+
+## Usage
+
+The general usage is pretty straight forward. After [Installation](#installation), you can import the modal using
+
+```js
+import { Modal } from "react-configurable-modal";
+```
+
+Set a boolean state to toggle the modal, and place your desired content within the `<Modal>` tags.
+
+`Width`, `height`, `position`, `animation`, and `coords` (in case you want to have the modal popped where is clicked) are the props you can set to the modal. You can find a thorough explanation on props as well as their default values in [API](#api).
+
+Please see [Examples](#examples) for a better understanding on how to use props.
+
+## API
