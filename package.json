@@ -1,6 +1,6 @@
 {
   "name": "react-configurable-modal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A react NPM package for creating popped modals with configuring dimensions, animation and position",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
