@@ -18,7 +18,7 @@ Here is a playground that you can set different props to the `Modal` and see whi
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [API](#api)
+- [Props](#props)
 - [Examples](#examples)
 
 ## Installation
@@ -49,8 +49,148 @@ import { Modal } from "react-configurable-modal";
 
 Set a boolean state to toggle the modal, and place your desired content within the `<Modal>` tags.
 
-`Width`, `height`, `position`, `animation`, and `coords` (in case you want to have the modal popped where is clicked) are the props you can set to the modal. You can find a thorough explanation on props as well as their default values in [API](#api).
+`Width`, `height`, `position`, `animation`, and `coords` (in case you want to have the modal popped where is clicked) are the props you can set to the modal. You can find a thorough explanation on props as well as their default values in [Props](#props).
 
 Please see [Examples](#examples) for a better understanding on how to use props.
 
-## API
+## Props
+
+- The option you set on a specific element, for example: `<a data-type="warning"></a>` will only affect this specific tooltip
+
+| Global    | Type                               | Required | Values                                                     | Default      | Description                                                                                                                                |
+| :-------- | :--------------------------------- | :------- | :--------------------------------------------------------- | :----------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
+| setShow   | Function                           | ✔        | e.g. modalSetShow(false)                                   | -            | The setState function of the boolean defined to toggle the modal - Used for modal closing on close button and outside of the content click |
+| children  | Node                               | -        | DOM                                                        | -            | Any markup desired to be shown in the modal                                                                                                |
+| width     | String                             | -        | e.g. "300px", "50%"                                        | "33.3%"      | Specified width of the modal                                                                                                               |
+| Height    | String                             | -        | e.g. "200px", "40%"                                        | "auto"       | Specified width of the modal                                                                                                               |
+| Position  | String                             | -        | "", "top", "center", "bottom", "target"                    | "top"        | Should be set to `taregt` if position is to the left-bottom of where is clicked                                                            |
+| animation | String                             | -        | "", "top", "bottom", "right", "left", "zoom-in", "fade-in" | No animation | To set the animation on modal popup                                                                                                        |
+| coords    | Object <top: Number, left: Number> | -        | e.g. {top: 850, left: 300}                                 | -            | Only applies if the position is set to `target`. See [Examples](#examples) on how it's passed                                              |
+
+## Examples
+
+Here is two simple examples of react-configurable-modal being used in an app with modal content (as children). First simply shows how to import and set the props and second one illustrates when positioned `target` and how to pass the coords:
+
+```JSX
+import React, { useState } from "react";
+import Modal from "./Modal";
+
+const App = () => {
+  const [modalShow, modalSetShow] = useState(false);
+  const [coords, setCoords] = useState({});
+
+  const handleClick = (e) => {
+    modalSetShow(!modalShow);
+    setCoords({ top: e.clientY, left: e.clientX });
+  };
+
+  return (
+    <div>
+      {modalShow && (
+        <Modal
+          setShow={modalSetShow}
+          width={"300px"}
+          height={"350px"}
+          animation={"top"}
+          position={"top"}
+        >
+
+        /* -----Your modal content comes here----- */
+          <div className="modal__header">
+            <span
+              onClick={() => modalSetShow(!modalShow)}
+              className="modal__close"
+            >
+              &times;
+            </span>
+            <h2>Modal Header</h2>
+          </div>
+          <div className="modal__body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+          </div>
+          <div className="modal__footer">
+            <h3>Modal Footer</h3>
+          </div>
+          /* -----Your modal content comes here----- */
+
+        </Modal>
+      )}
+
+      /*
+       button click as the modal trigger
+      */
+
+      <button onClick={handleClick}>
+        Click
+      </button>
+    </div>
+  );
+};
+
+export default App;
+```
+
+Example 2 with modal popped in the passed coordinates:
+
+(To pop the modal on the passed coordinates, position prop should be set to `target`)
+
+```JSX
+import React, { useState } from "react";
+import Modal from "./Modal";
+
+const App = () => {
+  const [modalShow, modalSetShow] = useState(false);
+  const [coords, setCoords] = useState({});
+
+  const handleClick = (e) => {
+    modalSetShow(!modalShow);
+    setCoords({ top: e.clientY, left: e.clientX });
+  };
+
+  return (
+    <div>
+      {modalShow && (
+        <Modal
+          setShow={modalSetShow}
+          width={"50%"}
+          animation={"fade-in"}
+          position={"target"}
+          coords={coords}
+        >
+
+        /* -----Your modal content comes here----- */
+          <div className="modal__header">
+            <span
+              onClick={() => modalSetShow(!modalShow)}
+              className="modal__close"
+            >
+              &times;
+            </span>
+            <h2>Modal Header</h2>
+          </div>
+          <div className="modal__body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+          </div>
+          <div className="modal__footer">
+            <h3>Modal Footer</h3>
+          </div>
+          /* -----Your modal content comes here----- */
+
+        </Modal>
+      )}
+
+      /*
+       button click as the modal trigger
+      */
+
+      <button onClick={handleClick}>
+        Click
+      </button>
+    </div>
+  );
+};
+
+export default App;
+```
