@@ -6,6 +6,7 @@ The advantage of this library is to pass the modal content as `chidren` prop and
 
 [![GitHub issues](https://img.shields.io/github/issues/Behfar90/react-configurable-modal)]()
 ![gzip size](http://img.badgesize.io/https://unpkg.com/react-configurable-modal@1.0.1/dist/index.js?compression=gzip)
+[![](https://data.jsdelivr.com/v1/package/npm/react-configurable-modal/badge)](https://www.jsdelivr.com/package/npm/react-configurable-modal)
 [![GitHub license](https://img.shields.io/github/license/Behfar90/react-configurable-modal)](https://img.shields.io/github/license/Behfar90/react-configurable-modal)
 
 ## Demo
@@ -32,12 +33,9 @@ To install react-configurable-modal in React CDN app:
 
 - Add this CDN script tag after React CDN scripts and before your JS files (for example from [cdnjs](https://cdnjs.com/)):
 
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/react-configurable-modal/3.14.3/react-configurable-modal.min.js"
-         integrity="sha512-MY2jfK3DBnVzdS2V8MXo5lRtr0mNRroUI9hoLVv2/yL3vrJTam3VzASuKQ96fLEpyYIT4a8o7YgtUs5lPjiLVQ=="
-         crossorigin="anonymous"
-         referrerpolicy="no-referrer"></script>
+         <script src="https://cdn.jsdelivr.net/npm/react-configurable-modal@1/dist/index.min.js"></script>
 
-- Use `<ReactConfigurableModal>` tag inside your React CDN app.
+- Use `<Modal>` tag inside your React CDN app.
 
 ## Usage
 
