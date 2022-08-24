@@ -1,4 +1,5 @@
 node_modules
 dist/
 src/components/Test.js
+src/test.css
 src/stories/Test.stories.js

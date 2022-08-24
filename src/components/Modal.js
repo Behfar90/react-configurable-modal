@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Content from "./Content";
 /* Hooks */
 import useOutsideCloser from "../hooks/useOutsideCloser";
+import useEscPress from "../hooks/useEscPress";
 // import useViewport from "../hooks/useViewport";
 /* Helpers */
 import setStyleProperty from "../helpers/setStyleProperty";
@@ -24,6 +25,7 @@ const Modal = ({
   const modalCloser = () => setShow(false);
 
   useOutsideCloser(modalRef, modalCloser);
+  useEscPress(modalCloser);
 
   if (animation) {
     setStyleProperty(animation);
