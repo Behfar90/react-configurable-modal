@@ -75,12 +75,6 @@ import Modal from "./Modal";
 
 const App = () => {
   const [modalShow, modalSetShow] = useState(false);
-  const [coords, setCoords] = useState({});
-
-  const handleClick = (e) => {
-    modalSetShow(!modalShow);
-    setCoords({ top: e.clientY, left: e.clientX });
-  };
 
   return (
     <div>
@@ -119,7 +113,7 @@ const App = () => {
        button click as the modal trigger
       */
 
-      <button onClick={handleClick}>
+      <button onClick={() => modalSetShow(!modalShow)}>
         Click
       </button>
     </div>

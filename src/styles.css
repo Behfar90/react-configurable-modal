@@ -157,36 +157,3 @@
     transform: scale(1);
   }
 }
-
-/*--------------------------- TO BE DELETED --------------------------------*/
-
-/* The Close Button */
-.modal__close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.modal__close:hover,
-.modal__close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal__header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
-
-.modal__body {
-  padding: 2px 16px;
-}
-
-.modal__footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
