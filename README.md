@@ -49,6 +49,8 @@ Set a boolean state to toggle the modal, and place your desired content within t
 
 `Width`, `height`, `position`, `animation`, and `coords` (in case you want to have the modal popped where is clicked) are the props you can set to the modal. You can find a thorough explanation on props as well as their default values in [Props](#props).
 
+- Pressing `esc` or clicking outside of the modal content closes the modal!
+
 Please see [Examples](#examples) for a better understanding on how to use props.
 
 ## Props
