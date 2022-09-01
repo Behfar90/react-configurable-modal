@@ -2,8 +2,8 @@ import React from "react";
 import useViewportKeeper from "../hooks/useViewportKeeper";
 
 const Content = ({ animation, position, passedStyles, children }, ref) => {
-  var newPosition = useViewportKeeper(ref);
-  const newStyles = { ...passedStyles, ...newPosition };
+  var vpData = useViewportKeeper(ref);
+  const newStyles = { ...passedStyles, ...vpData.newPos };
 
   const animationClass = ["top", "bottom"].includes(animation)
     ? " animate__vertical"
@@ -13,6 +13,8 @@ const Content = ({ animation, position, passedStyles, children }, ref) => {
     ? ` animate__${animation}`
     : "";
 
+  const toggleAnimationInvisible = vpData.done ? animationClass : " invisible";
+
   const positionClass =
     position && position !== "top" ? ` position__${position}` : "";
 
@@ -20,8 +22,8 @@ const Content = ({ animation, position, passedStyles, children }, ref) => {
     <div
       ref={ref}
       id="modalContent"
-      className={"modal__content" + animationClass + positionClass}
-      style={passedStyles} // passedStyles for now until a new solution for the viewportKeeper is found
+      className={"modal__content" + toggleAnimationInvisible + positionClass}
+      style={newStyles}
     >
       {children}
     </div>

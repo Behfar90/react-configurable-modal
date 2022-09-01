@@ -84,6 +84,10 @@
   position: absolute;
 }
 
+.invisible {
+  opacity: 0;
+}
+
 /* Add Animation */
 @-webkit-keyframes animatevertical {
   from {

@@ -63,9 +63,11 @@ Please see [Examples](#examples) for a better understanding on how to use props.
 | children  | Node                               | -        | DOM                                                        | -            | Any markup desired to be shown in the modal                                                                                                |
 | width     | String                             | -        | e.g. "300px", "50%"                                        | "33.3%"      | Specified width of the modal                                                                                                               |
 | Height    | String                             | -        | e.g. "200px", "40%"                                        | "auto"       | Specified width of the modal                                                                                                               |
-| Position  | String                             | -        | "", "top", "center", "bottom", "target"                    | "top"        | Should be set to `taregt` if position is to the left-bottom of where is clicked                                                            |
+| Position  | String                             | -        | "", "top", "center", "bottom", "target"                    | "top"        | position: `target` makes the modal to pop up on the provided coordinates (coords).                                                         |
 | animation | String                             | -        | "", "top", "bottom", "right", "left", "zoom-in", "fade-in" | No animation | To set the animation on modal popup                                                                                                        |
 | coords    | Object <top: Number, left: Number> | -        | e.g. {top: 850, left: 300}                                 | -            | Only applies if the position is set to `target`. See [Examples](#examples) on how it's passed                                              |
+
+- UPDATE: On position: `target`, there's a viewport checker hook that keeps the modal within the viewport if left-bottom is out of page
 
 ## Examples
 

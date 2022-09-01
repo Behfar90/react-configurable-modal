@@ -2,13 +2,20 @@ import React, { useState, useEffect } from "react";
 import positionHandler from "../helpers/positionHandler";
 
 const useViewportKeeper = (ref) => {
-  const [position, setPosition] = useState({});
+  const [position, setPosition] = useState({
+    done: false,
+    newPos: {},
+  });
 
   useEffect(() => {
     const intersectionHandler = ([entry]) => {
+      if (position.done) return;
+
       if (!entry.isIntersecting) {
         const newPosition = positionHandler(ref);
-        setPosition(newPosition);
+        setPosition({ done: true, newPos: newPosition });
+      } else {
+        setPosition({ ...position, done: true });
       }
     };
     const observer = new IntersectionObserver(intersectionHandler, {
@@ -19,7 +26,8 @@ const useViewportKeeper = (ref) => {
     return () => {
       observer.disconnect();
     };
-  }, [ref]);
+  }, [ref, position]);
+
   return position;
 };
 

@@ -34,8 +34,8 @@ const Modal = ({
   var passedStyles = {
     width: width || null,
     height: height || null,
-    top: coords?.top && position === "target" ? coords?.top : null,
-    left: coords?.left && position === "target" ? coords?.left : null,
+    ...(coords?.top && position === "target" && { top: coords.top }),
+    ...(coords?.left && position === "target" && { left: coords.left }),
   };
 
   return (
