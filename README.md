@@ -75,7 +75,7 @@ Here is two simple examples of react-configurable-modal being used in an app wit
 
 ```JSX
 import React, { useState } from "react";
-import Modal from "./Modal";
+import { Modal } from "react-configurable-modal";
 
 const App = () => {
   const [modalShow, modalSetShow] = useState(false);
@@ -133,7 +133,7 @@ Example 2 with modal popped in the passed coordinates:
 
 ```JSX
 import React, { useState } from "react";
-import Modal from "./Modal";
+import { Modal } from "react-configurable-modal";
 
 const App = () => {
   const [modalShow, modalSetShow] = useState(false);
