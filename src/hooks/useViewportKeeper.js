@@ -10,7 +10,6 @@ const useViewportKeeper = (ref) => {
   useEffect(() => {
     const intersectionHandler = ([entry]) => {
       if (position.done) return;
-
       if (!entry.isIntersecting) {
         const newPosition = positionHandler(ref);
         setPosition({ done: true, newPos: newPosition });

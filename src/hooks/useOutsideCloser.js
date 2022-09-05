@@ -9,6 +9,7 @@ const useOutsideCloser = (ref, handler) => {
       ) {
         return;
       }
+      ref.current.close();
       handler();
     };
     document.addEventListener("mousedown", listener);
@@ -17,7 +18,7 @@ const useOutsideCloser = (ref, handler) => {
       document.removeEventListener("mousedown", listener);
       document.removeEventListener("touchstart", listener);
     };
-  }, [ref, handler]);
+  }, [ref]);
 };
 
 export default useOutsideCloser;
